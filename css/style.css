@@ -1,0 +1,146 @@
+.wrapper {
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 0.6px;
+  font-size: 20px;
+}
+
+#add_text-form {
+  margin: 0 auto;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+
+.add_name-value--wrapper {
+  display: flex;
+
+}
+
+#error_inform-block {
+  margin: 0;
+  padding-bottom: 5vh;
+  width: 25vw;
+  height: 3vh;
+  font-size: 20px;
+  color: red;
+}
+
+
+
+.style_name-value-input {
+  width: 35vw;
+  margin-right: 5vw;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  border-radius: 2px;
+  border: 2px solid black;
+}
+
+
+.style_name-value-input:invalid {
+  border: 2px solid red;
+  color: red;
+}
+
+.style_name-value-input:focus:valid {
+  border: 2px solid green;
+  color: green;
+}
+
+.style_name-value-input:focus:invalid {
+  border: 2px solid red;
+}
+
+
+
+.result-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show_result-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5vw;
+}
+
+#show_result-area {
+  width: 35vw;
+  height: 45vh;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.change_result-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-right: 3vw;
+}
+
+
+.result_style-submits {
+  margin-top: 3vh;
+  width: auto;
+}
+
+.parse_result-title {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+}
+
+#show_result-XML {
+  margin: 0;
+
+  letter-spacing: 0.6px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .wrapper h1 {
+    margin: 0 0 2vh 0;
+  }
+
+  #add_text-form {
+    margin: 0 auto;
+    width: 100vw;
+  }
+
+  #error_inform-block {
+    padding: 1vh 0 1vh 0;
+    width: 60vw;
+    height: 3vh;
+    font-size: 12px;
+    color: red;
+  }
+
+  .style_name-value-input {
+    width: 55vw;
+    margin-right: 5vw;
+    font-size: 16px;
+  }
+
+  #show_result-area {
+    width: 55vw;
+    height: 45vh;
+    font-size: 18px;
+  }
+
+  .XML_result {
+    width: 100%;
+  }
+
+  #show_result-XML {
+    margin: 0;
+    font-size: 18px;
+  }
+
+}

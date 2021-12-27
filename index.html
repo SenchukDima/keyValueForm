@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="add_text-form" action="" name="test_form">
+        <h1>Test</h1>
+        <label for="add_name-value-input">Name/Value Pair</label>
+        <div>
+          <div class="add_name-value--wrapper">
+            <input
+              type="text"
+              pattern="^([A-Za-zА-Яа-яЁё\d\s]+=[A-Za-zА-Яа-яЁё\d\s]+)$"
+              id="add_name-value-input"
+              class="style_name-value-input"
+              name="fname"
+              placeholder="Name=Value"
+            />
+            <input type="submit" value="Add" id="add_name-value-submit" />
+          </div>
+          <h2 id="error_inform-block"></h2>
+        </div>
+        <div class="result-wrapper">
+          <div class="show_result-wrapper">
+            <label for="show_result-area" id="">Name/Value Pair List</label>
+            <textarea
+              type="text"
+              id="show_result-area"
+              name="fname"
+              disabled
+            ></textarea>
+          </div>
+          <div class="change_result-wrapper">
+            <input
+              id="sort_result_by-name"
+              class="result_style-submits"
+              type="submit"
+              value="Sort by Name"
+            />
+            <input
+              id="sort_result_by-value"
+              class="result_style-submits"
+              type="submit"
+              value="Sort by Value"
+            />
+            <input
+              id="delete_result-one"
+              class="result_style-submits"
+              type="submit"
+              value="Delete One"
+            />
+            <input
+              id="delete_result"
+              class="result_style-submits"
+              type="submit"
+              value="Delete"
+            />
+            <input
+              id="show_result-xml"
+              class="result_style-submits"
+              type="submit"
+              value="Show XML"
+            />
+          </div>
+          <div class="XML_result">
+            <h2 class="parse_result-title">Parsed XML result:</h2>
+            <p id="show_result-XML"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>

@@ -29,12 +29,16 @@
         <div class="result-wrapper">
           <div class="show_result-wrapper">
             <label for="show_result-area" id="">Name/Value Pair List</label>
-            <textarea
-              type="text"
-              id="show_result-area"
-              name="fname"
-              disabled
-            ></textarea>
+            
+            <select
+              id="select"
+              class="form-control"
+              size="4"
+              name="fruct[]"
+              multiple
+            >
+          
+          </select>
           </div>
           <div class="change_result-wrapper">
             <input
@@ -53,12 +57,6 @@
               id="delete_result-one"
               class="result_style-submits"
               type="submit"
-              value="Delete One"
-            />
-            <input
-              id="delete_result"
-              class="result_style-submits"
-              type="submit"
               value="Delete"
             />
             <input
@@ -75,6 +73,7 @@
         </div>
       </form>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/index.js" type="module"></script>
   </body>
 </html>

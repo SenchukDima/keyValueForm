@@ -1,87 +1,87 @@
 "use strict";
 
 let input = document.getElementById("add_name-value-input"); //or this.parentNode
-let textarea = document.getElementById("show_result-area");
 
 let splitedArray = [];
-let keyValueObj = {};
 
 function addNameValue() {
   if (/^([A-Za-zА-Яа-яЁё\d\s]+=[A-Za-zА-Яа-яЁё\d\s]+)$/.test(input.value)) {
     let keyValueArray = [];
-    let keyValueRepace;
-    keyValueRepace = input.value.replace(/\s/g, "");
-    textarea.value += keyValueRepace + "\n";
-
+    let keyValueReplace;
+    keyValueReplace = input.value.replace(/\s/g, "");
+    $("#select").append(`<option value="" ">${keyValueReplace}</option>`);
     document.getElementById("error_inform-block").textContent = "";
-    keyValueArray = keyValueRepace.split("=");
+    keyValueArray = keyValueReplace.split("=");
     splitedArray.push(keyValueArray);
+    console.log(splitedArray);
   }
 }
 
 function sortTextareaByName() {
   if (splitedArray.length != 1) {
-    textarea.value = "";
+    $("#select").empty();
     splitedArray.sort((a, b) => a[0].localeCompare(b[0]));
     for (let i = 0; i < splitedArray.length; i++) {
       let joinedArray = [];
 
       joinedArray = splitedArray[i].join("=");
-      textarea.value += joinedArray + "\n";
-    }
-  } else return false;
-}
 
-function sortTextareaByValue() {
-  if (splitedArray.length != 1) {
-    textarea.value = "";
-    splitedArray.sort((a, b) => a[1].localeCompare(b[1]));
-    for (let i = 0; i < splitedArray.length; i++) {
-      let joinedArray = [];
-
-      joinedArray = splitedArray[i].join("=");
-      textarea.value += joinedArray + "\n";
+      $("#select").append(`<option value="" ">${joinedArray}</option>`);
     }
   }
-}
-
-function clearLastInTextarea() {
-  if (splitedArray.length != 0) {
-    textarea.value = "";
-
-    for (let i = 0; i < splitedArray.length - 1; i++) {
-      let joinedArray = [];
-
-      joinedArray = splitedArray[i].join("=");
-      textarea.value += joinedArray + "\n";
-    }
-    splitedArray.pop();
-  }
-  console.log(document.getElementById("show_result-XML").textContent);
   if (document.getElementById("show_result-XML").textContent !== "") {
     document.getElementById("show_result-XML").innerHTML = "";
     showXML();
   }
 }
 
-function clearTextarea() {
-  if (splitedArray.length != 0) {
-    textarea.value = "";
+function sortTextareaByValue() {
+  if (splitedArray.length != 1) {
+    $("#select").empty();
+    splitedArray.sort((a, b) => a[1].localeCompare(b[1]));
+    for (let i = 0; i < splitedArray.length; i++) {
+      let joinedArray = [];
+
+      joinedArray = splitedArray[i].join("=");
+      $("#select").append(`<option value="" ">${joinedArray}</option>`);
+    }
+  }
+  if (document.getElementById("show_result-XML").textContent !== "") {
     document.getElementById("show_result-XML").innerHTML = "";
+    showXML();
+  }
+}
+
+function clearLastInTextarea() {
+  if (splitedArray.length != 0) {
+    $("#select option:selected").remove();
+    const value = $("#select")[0].length;
     splitedArray = [];
+    for (let i = 0; i < value; i++) {
+      let splitArray = [];
+
+      splitArray = $("#select")[0][i].text.split("=");
+
+      splitedArray.push(splitArray);
+    }
+  }
+  if (document.getElementById("show_result-XML").textContent !== "") {
+    document.getElementById("show_result-XML").innerHTML = "";
+    showXML();
   }
 }
 
 function showXML() {
   if (splitedArray.length != 0) {
+    const value = $("#select")[0].length;
     let text = "";
     let parser, xmlDoc;
 
     let titleText = "";
-    for (let i = 0; i < splitedArray.length; i++) {
+    for (let i = 0; i < value; i++) {
       titleText +=
         "<bookstore><book>" +
-        `<title>${splitedArray[i][0]}=${splitedArray[i][1]}</title>` +
+        `<title>${$("#select")[0][i].text}</title>` +
         "</book></bookstore>";
     }
     text = `<Parent>${titleText}</Parent>`;
@@ -156,15 +156,6 @@ document.getElementById("delete_result-one").addEventListener(
   false
 );
 
-document.getElementById("delete_result").addEventListener(
-  "click",
-  function (e) {
-    e.preventDefault();
-    clearTextarea();
-  },
-  false
-);
-
 document.getElementById("show_result-xml").addEventListener(
   "click",
   function (e) {
@@ -173,3 +164,4 @@ document.getElementById("show_result-xml").addEventListener(
   },
   false
 );
+

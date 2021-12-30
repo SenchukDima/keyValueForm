@@ -68,7 +68,6 @@
 
 #select {
   width: 35vw;
-  height: 45vh;
   background-color: #fff;
   color: rgb(0, 0, 0);
   font-size: 20px;
@@ -130,7 +129,6 @@
 
   #select {
     width: 55vw;
-    height: 45vh;
     font-size: 18px;
   }
 
